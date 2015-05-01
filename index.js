@@ -72,7 +72,8 @@ MetaUtil.prototype.run = function() {
                 intersection[j++] = tags[i];
             if (j > 0) {
               that._changesetAttrs['created_at'] = new Date(that._changesetAttrs['created_at']);
-              that._changesetAttrs['created_at'] = new Date(that._changesetAttrs['closed_at']);
+              that._changesetAttrs['closed_at'] = new Date(that._changesetAttrs['closed_at']);
+              console.log("got here!")
               that.db.collection('changesets').update( { "id": that._changesetAttrs.id },
                 that._changesetAttrs,
                 { upsert: true,  writeConcern: 0  }, 
@@ -101,7 +102,7 @@ MetaUtil.prototype.run = function() {
     var interval = setInterval(function()  {
 
         if (that.tags_collection != "") {
-          that.db.collection(that.tags_collection).find({"status":1}).toArray(function(err, results){ 
+          that.db.collection(that.tags_collection).find().toArray(function(err, results){ 
             that.tags = results.map(function(result){
               return result.tag;
             });
