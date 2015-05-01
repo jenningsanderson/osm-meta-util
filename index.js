@@ -125,6 +125,8 @@ MetaUtil.prototype.run = function() {
         xmlParser.on('startElement', parserStart)
         xmlParser.on('endElement', parserEnd)
 
+        console.log(that.baseURL + url.split('').reverse().join('') + '.osm.gz')
+
         request.get(that.baseURL + url.split('').reverse().join('') + '.osm.gz')
             .pipe(zlib.createUnzip())
             .pipe(xmlParser)
