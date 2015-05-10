@@ -77,8 +77,12 @@ MetaUtil.prototype.run = function() {
                 that._changesetAttrs = attrs;
             }
         }
+
         if (name === 'tag' && that._changesetAttrs && that._changesetAttrs.open === 'false') {
-            that._changesetAttrs[attrs.k] = attrs.v;
+            if(that._changesetAttrs['tags'] == undefined){
+              that._changesetAttrs['tags'] = {}
+            }
+            that._changesetAttrs['tags'][attrs.k] = attrs.v;
         }
     };
 
@@ -106,6 +110,7 @@ MetaUtil.prototype.run = function() {
                 var nodata = true;
                 //If YAML state is bigger, we can get a new file
                 if (Number(body.substr(body.length - 8)) >= that.state) {
+                  console.log("Changesets: " + that.baseURL + url.split('').reverse().join('') + '.osm.gz')
                     var ss = request.get(that.baseURL + url.split('').reverse().join('') + '.osm.gz')
                         .pipe(zlib.createUnzip())
                         .on('data', function(data) {
