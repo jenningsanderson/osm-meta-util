@@ -27,7 +27,7 @@
   "homepage": "https://github.com/osmlab/osm-meta-util",
   "dependencies": {
     "minimist": "^1.1.1",
-    "mongodb": "^2.0.31",
+    "mongodb": "^2.0.28",
     "node-expat": "^2.3.5",
     "request": "^2.53.0",
     "turf": "^2.0.2"

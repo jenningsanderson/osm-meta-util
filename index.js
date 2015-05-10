@@ -20,7 +20,6 @@ function MetaUtil(opts) {
     this.diff = this.end - this.state + 1;
     this.delay = (opts.delay || 60000);
     this.initialized = true;
-
     this.baseURL = opts.baseURL || 'http://planet.osm.org/replication/changesets';
     this._changesetAttrs = {};
     this.started = false;
@@ -61,7 +60,7 @@ MetaUtil.prototype.run = function() {
 
     var parserEnd = function(name, attrs) {
         if (name === 'changeset') {
-            that.push(new Buffer(JSON.stringify(that._changesetAttrs) + '\n'), 'utf8');
+          that.push(new Buffer(JSON.stringify(that._changesetAttrs) + '\n'), 'utf8');
         }
         if (name === 'osm') {
           queueNext();
@@ -123,7 +122,6 @@ MetaUtil.prototype.run = function() {
                           }
                         })
                         .pipe(xmlParser);
-
                     that.state += 1;
                 }
             }
