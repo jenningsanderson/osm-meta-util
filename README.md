@@ -61,6 +61,7 @@ node app 001181708 001181721 1000 | jq -c '{user:.user, date: .closed_at}'
 
 ### 4. Using with Mongo & Bounding Boxes or Tags
 ```examples/filter_to_mongo.js``` is a script to use the utility to import changesets to MongoDB.  Available filters are:
+
 1. Bounding Box (Using Turf.js)
 2. Tags (defined by a changeset_tags collection)
 
