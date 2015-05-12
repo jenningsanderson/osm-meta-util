@@ -14,7 +14,7 @@ var start = argv['start']
 var end   = argv['end']
 
 var config = {
-   'delay': delay
+   'delay': delay,
    'start': start, //file number
    'end'  : end
   }
