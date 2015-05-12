@@ -58,3 +58,14 @@ Use it in combination with [jq](https://stedolan.github.io/jq/)
 ```sh
 node app 001181708 001181721 1000 | jq -c '{user:.user, date: .closed_at}'
 ```
+
+### 4. Using with Mongo & Bounding Boxes or Tags
+```examples/filter_to_mongo.js``` is a script to use the utility to import changesets to MongoDB.  Available filters are:
+1. Bounding Box (Using Turf.js)
+2. Tags (defined by a changeset_tags collection)
+
+A bounding box for Nepal is currently hardcoded into the beginning of the file, running it with the following command will import changesets to the mongodb://nepal-full/ changesets collection which have at least one of the bbox corners in the Nepal country boundaries (a convex hull of the country for simplicity)
+
+```sh
+  node filter_to_mongo.js --db nepal-full
+```
