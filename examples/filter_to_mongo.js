@@ -26,7 +26,7 @@ var bbox = {"type": "FeatureCollection",
                  ]}
 var config = {
    'delay': 1000,        //Every second, do another file.
-   'start': '001300000', //File number
+   'start': '001306021', //File number
    'end': '001308592'
   }
 ///////////////////////////////////////////
